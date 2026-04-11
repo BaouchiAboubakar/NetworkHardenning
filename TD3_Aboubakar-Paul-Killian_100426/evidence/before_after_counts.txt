@@ -1,0 +1,25 @@
+usersensor@sensor:~/evidence$ cat before_counts.txt
+04/10/2026-13:15:00.317915  [**] [1:2024364:5] ET SCAN Possible Nmap User-Agent Observed [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 10.10.10.10:59978 -> 10.10.20.10:80
+04/10/2026-13:04:02.875397  [**] [1:2024364:5] ET SCAN Possible Nmap User-Agent Observed [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 10.10.10.10:37282 -> 10.10.20.10:80
+04/10/2026-13:04:02.876131  [**] [1:2024364:5] ET SCAN Possible Nmap User-Agent Observed [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 10.10.10.10:37286 -> 10.10.20.10:80
+04/10/2026-13:04:02.880809  [**] [1:2024364:5] ET SCAN Possible Nmap User-Agent Observed [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 10.10.10.10:37302 -> 10.10.20.10:80
+04/10/2026-13:04:02.882303  [**] [1:2024364:5] ET SCAN Possible Nmap User-Agent Observed [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 10.10.10.10:37314 -> 10.10.20.10:80
+04/10/2026-13:04:02.882394  [**] [1:2024364:5] ET SCAN Possible Nmap User-Agent Observed [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 10.10.10.10:48280 -> 10.10.20.10:80
+04/10/2026-13:04:02.882482  [**] [1:2024364:5] ET SCAN Possible Nmap User-Agent Observed [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 10.10.10.10:48282 -> 10.10.20.10:80
+04/10/2026-13:04:02.882694  [**] [1:2024364:5] ET SCAN Possible Nmap User-Agent Observed [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 10.10.10.10:48294 -> 10.10.20.10:80
+04/10/2026-13:04:02.882706  [**] [1:2024364:5] ET SCAN Possible Nmap User-Agent Observed [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 10.10.10.10:48296 -> 10.10.20.10:80
+04/10/2026-13:04:02.882730  [**] [1:2024364:5] ET SCAN Possible Nmap User-Agent Observed [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 10.10.10.10:48306 -> 10.10.20.10:80
+04/10/2026-13:30:41.174843  [**] [1:9000001:1] TDS CUSTOM - HTTP request to /admin detectes [**] [Classification: Potential Corporate Privacy Violation] [Priority: 1] {TCP} 10.10.10.10:49112 -> 10.10.20.10:80
+
+
+
+usersensor@sensor:~/evidence$ cat after_counts.txt
+04/10/2026-15:30:42.749046 [**] [1:2024364:5] ET SCAN Possible Nmap User-Agent Observed [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 10.10.10.0:48306 -> 10.10.20.10:80
+04/10/2026-15:30:53.174843 [**] [1:9000001:1] TD3 CUSTOM - HTTP request to /admin detects [**] [Classification: Potential Corporate Privacy Violation] [Priority: 1] {TCP} 10.10.10.10:49112 -> 10.10.20.10:80
+04/10/2026-15:30:53.226029 [**] [1:2024364:5] ET SCAN Possible Nmap User-Agent Observed [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 10.10.10.20:60264 -> 10.10.20.10:80
+04/10/2026-15:30:53.239757 [**] [1:2024364:5] ET SCAN Possible Nmap User-Agent Observed [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 10.10.10.20:60265 -> 10.10.20.10:80
+04/10/2026-15:30:53.239869 [**] [1:2024364:5] ET SCAN Possible Nmap User-Agent Observed [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 10.10.10.20:60266 -> 10.10.20.10:80
+04/10/2026-15:30:53.239965 [**] [1:2024364:5] ET SCAN Possible Nmap User-Agent Observed [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 10.10.10.20:60267 -> 10.10.20.10:80
+04/10/2026-15:30:53.240058 [**] [1:2024364:5] ET SCAN Possible Nmap User-Agent Observed [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 10.10.10.20:60268 -> 10.10.20.10:80
+04/10/2026-15:30:53.240155 [**] [1:2024364:5] ET SCAN Possible Nmap User-Agent Observed [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 10.10.10.20:60269 -> 10.10.20.10:80
+04/10/2026-15:30:53.240247 [**] [1:2024364:5] ET SCAN Possible Nmap User-Agent Observed [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 10.10.10.20:60270 -> 10.10.20.10:80
