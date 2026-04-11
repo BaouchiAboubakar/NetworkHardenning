@@ -1,0 +1,82 @@
+
+
+R1
+
+bash R1_firewall.sh 
+=== R1 Firewall Regression ===
+Target: 10.10.20.10:8443
+P1: HTTPS -> srv-web... PASS, HTTP code 200
+N1: Port 12345 → srv-web... PASS (blocked)
+N2: Port 3306 → srv-web... PASS (blocked)
+R1: All checks passed
+
+
+
+What it tests
+Ce script vérifie que la configuration TLS du service web en DMZ reste conforme au profil attendu. 
+Il teste d’abord que le serveur accepte bien les connexions en TLS 1.2 sur 10.10.20.10:8443, ce qui garantit que la version minimale requise est disponible. 
+Ensuite, il vérifie la présence de l’en-tête HTTP Strict-Transport-Security dans la réponse HTTPS, ce qui confirme que la politique HSTS est bien activée côté serveur pour forcer l’usage de HTTPS par les navigateurs.
+
+Expected result
+Le résultat attendu est que la connexion via openssl s_client en TLS 1.2 aboutisse avec une négociation réussie, et que la sortie contienne clairement le protocole TLSv1.2, montrant que cette version est acceptée. 
+Pour la partie HSTS, la requête curl doit renvoyer des en-têtes HTTP contenant Strict-Transport-Security, confirmant que le serveur annonce correctement une politique HSTS stricte. 
+Si TLS 1.2 n’est pas accepté, ou si l’en-tête HSTS est absent, le test doit échouer car la configuration TLS ne respecte plus le profil défini.
+
+
+R2
+
+bash R2_tls.sh          
+=== R2 TLS Regression ===
+P1: TLS 1.2 accepted... PASS
+P2: HSTS header... PASS
+R2: All checks passed
+
+
+
+What it tests
+Ce script vérifie que la configuration TLS du service web en DMZ reste conforme au profil attendu. 
+Il teste d’abord que le serveur accepte bien les connexions en TLS 1.2 sur 10.10.20.10:8443, ce qui garantit que la version minimale requise est disponible. 
+Ensuite, il vérifie la présence de l’en-tête HTTP Strict-Transport-Security dans la réponse HTTPS, ce qui confirme que la politique HSTS est bien activée côté serveur pour forcer l’usage de HTTPS par les navigateurs.
+
+Expected result
+Le résultat attendu est que la connexion via openssl s_client en TLS 1.2 aboutisse avec une négociation réussie, et que la sortie contienne clairement le protocole TLSv1.2, montrant que cette version est acceptée.
+Pour la partie HSTS, la requête curl doit renvoyer des en-têtes HTTP contenant Strict-Transport-Security, confirmant que le serveur annonce correctement une politique HSTS stricte.
+Si TLS 1.2 n’est pas accepté, ou si l’en-tête HSTS est absent, le test doit échouer car la configuration TLS ne respecte plus le profil défini.
+
+
+
+R3
+
+bash R3_remote_access.sh
+=== R3 Remote Access Regression ===
+P1: SSH key auth... PASS
+N1: SSH password denied... PASS
+R3: All checks passed
+
+
+What it tests
+Ce script vérifie que l’accès distant au serveur est correctement durci côté SSH conformément aux bonnes pratiques décidées pour l’admin.
+Il teste d’une part que l’authentification par clé SSH avec l’utilisateur OCC1 fonctionne toujours correctement, en utilisant une clé spécifique (~/.ssh/id_td5) pour établir une connexion non interactive. 
+D’autre part, il vérifie que l’authentification par mot de passe a bien été désactivée pour ce même utilisateur, en forçant une tentative sans clé afin de s’assurer que le serveur refuse ce mode d’authentification.​
+
+Expected result
+Le résultat attendu est que la connexion SSH avec clé réussisse et permette d’exécuter la commande de test (echo ok), ce qui prouve que l’authentification par clé est fonctionnelle et autorisée. 
+À l’inverse, la tentative de connexion en désactivant l’authentification par clé doit échouer, indiquant que le serveur refuse les connexions par mot de passe pour l’utilisateur d’administration. 
+Si l’authentification par mot de passe fonctionne encore, ou si la connexion par clé échoue, le test doit être considéré comme un échec car la configuration SSH n’est plus conforme au durcissement prévu.
+
+
+
+R4
+
+=== R4 Detection Regression ===
+P1: Trigger /admin detection... PASS (new alerts: 1)
+R4: All checks passed
+
+What it tests
+Ce script vérifie que l’IDS (Suricata) sur 10.10.20.50 détecte bien un trafic de test connu correspondant à une règle personnalisée, identifiée par le SID 9000001. 
+Il commence par compter le nombre d’alertes déjà présentes pour ce SID dans le fichier fast.log, puis génère volontairement une requête HTTP vers l’URL /admin du serveur web (http://10.10.20.10/admin), qui est censée déclencher cette règle. 
+Après un court délai, il recompte les occurrences du SID dans le journal Suricata pour vérifier qu’une nouvelle alerte a été enregistrée.​
+
+Expected result
+Le résultat attendu est que le nombre d’alertes pour le SID 9000001 dans /var/log/suricata/fast.log augmente après l’envoi de la requête HTTP de test vers /admin, ce qui prouve que l’IDS voit bien ce trafic et applique correctement la règle personnalisée. 
+Si le compteur reste identique avant et après le test, cela signifie qu’aucune nouvelle alerte n’a été générée pour ce trafic de test, et le contrôle doit être considéré comme un échec (règle non chargée, mauvaise interface, ou problème de détection).

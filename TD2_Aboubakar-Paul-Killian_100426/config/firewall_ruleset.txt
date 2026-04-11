@@ -1,0 +1,32 @@
+table inet filter {
+        chain forward {
+                type filter hook forward priority filter; policy drop;
+                ct state established,related counter packets 109 bytes 25863 accept
+                ip saddr 10.10.10.0/24 ip daddr 10.10.20.10 tcp dport 80 counter packets 8 bytes 480 accept
+                ip saddr 10.10.10.0/24 ip daddr 10.10.20.10 tcp dport 443 counter packets 2 bytes 120 accept
+                ip saddr 10.10.10.0/24 ip daddr 10.10.20.10 tcp dport 22 counter packets 3 bytes 180 accept
+                ip saddr 10.10.10.0/24 ip daddr 10.10.20.0/24 icmp type echo-request limit rate 5/second burst 5 packets counter packets 1 bytes 84 accept
+                counter packets 0 bytes 0 log prefix "NFT_FWD_DENY " limit rate 10/minute burst 5 packets
+        }
+
+        chain input {
+                type filter hook input priority filter; policy drop;
+                iif "lo" counter packets 17292 bytes 1227716 accept
+                ct state established,related counter packets 7167 bytes 642865 accept
+                ip saddr 10.10.10.0/24 tcp dport 22 counter packets 5 bytes 300 accept
+                counter packets 26 bytes 2184 log prefix "NFT_IN_DENY " limit rate 10/minute burst 5 packets
+                ip saddr 10.10.10.0/24 icmp type echo-request limit rate 5/second burst 5 packets counter packets 1 bytes 84 accept
+        }
+
+        chain output {
+                type filter hook output priority filter; policy accept;
+        }
+}
+
+
+nous avons nous même  ajouté la règle suivante: 
+
+sudo nft add rule inet filter input ip saddr 10.10.10.0/24 icmp type echo-request limit rate 5/second burst 5 packets counter accept
+
+sinon le ping ne fonctionnait pas 
+

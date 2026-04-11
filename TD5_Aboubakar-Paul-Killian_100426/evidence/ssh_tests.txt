@@ -1,0 +1,49 @@
+sh -i ~/.ssh/id_td5 OCC1@10.10.20.10 "echo SSH_KEY_OK"
+
+Enter passphrase for key '/home/kali/.ssh/id_td5': 
+SSH_KEY_OK
+
+
+ssh -o PubkeyAuthentication=no OCC1@10.10.20.10
+OCC1@10.10.20.10's password: 
+Welcome to Ubuntu 24.04.4 LTS (GNU/Linux 6.8.0-100-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of sam. 11 avril 2026 00:19:50 UTC
+
+  System load:             0.07
+  Usage of /:              58.3% of 8.02GB
+  Memory usage:            24%
+  Swap usage:              0%
+  Processes:               108
+  Users logged in:         1
+  IPv4 address for enp0s8: 10.0.3.15
+  IPv6 address for enp0s8: fd17:625c:f037:3:a00:27ff:fe15:31cb
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+La maintenance de sécurité étendue pour Applications n'est pas activée.
+
+86 mises à jour peuvent être appliquées immédiatement.
+69 de ces mises à jour sont des mises à jour de sécurité.
+Pour afficher ces mises à jour supplémentaires, exécuter : apt list --upgradable
+
+1 mise à jour de sécurité supplémentaire peut être appliquée avec ESM Apps
+En savoir plus sur l'activation du service ESM Apps at https://ubuntu.com/esm
+
+Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
+
+
+ssh -i ~/.ssh/id_td5 root@10.10.20.10
+Warning: Identity file /home/OCC1/.ssh/id_td5 not accessible: No such file or directory.
+/etc/ssh/ssh_config: line 22: Bad configuration option: allowusers
+/etc/ssh/ssh_config: line 27: Bad configuration option: permitrootlogin
+/etc/ssh/ssh_config: line 29: Bad configuration option: maxauthtries
+/etc/ssh/ssh_config: line 30: Bad configuration option: logingracetime
+/etc/ssh/ssh_config: terminating, 4 bad configuration options

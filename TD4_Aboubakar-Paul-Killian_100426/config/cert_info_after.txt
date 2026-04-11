@@ -1,0 +1,225 @@
+openssl s_client -connect 10.10.20.10:8443 -servername td4.local -tls1_2 </dev/null
+
+Connecting to 10.10.20.10
+CONNECTED(00000003)
+depth=0 C=FR, ST=Paris, L=Paris, O=Esilv, OU=Esilv
+verify error:num=18:self-signed certificate
+verify return:1
+depth=0 C=FR, ST=Paris, L=Paris, O=Esilv, OU=Esilv
+verify return:1
+---
+Certificate chain
+ 0 s:C=FR, ST=Paris, L=Paris, O=Esilv, OU=Esilv
+   i:C=FR, ST=Paris, L=Paris, O=Esilv, OU=Esilv
+   a:PKEY: RSA, 2048 (bit); sigalg: sha256WithRSAEncryption
+   v:NotBefore: Apr 10 19:14:16 2026 GMT; NotAfter: Apr 10 19:14:16 2027 GMT
+---
+Server certificate
+-----BEGIN CERTIFICATE-----
+MIIDezCCAmOgAwIBAgIUHW5MGa9UMAtIREecFSjvrwBCCfEwDQYJKoZIhvcNAQEL
+BQAwTTELMAkGA1UEBhMCRlIxDjAMBgNVBAgMBVBhcmlzMQ4wDAYDVQQHDAVQYXJp
+czEOMAwGA1UECgwFRXNpbHYxDjAMBgNVBAsMBUVzaWx2MB4XDTI2MDQxMDE5MTQx
+NloXDTI3MDQxMDE5MTQxNlowTTELMAkGA1UEBhMCRlIxDjAMBgNVBAgMBVBhcmlz
+MQ4wDAYDVQQHDAVQYXJpczEOMAwGA1UECgwFRXNpbHYxDjAMBgNVBAsMBUVzaWx2
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0Smkqkrl7gwPqHV6bTLw
+4pQxFORKZ68F4b22jaVpGsQ8Zyh7z0jrf5e/ltuO0fsn5Sg/KPvGeGKl46AtahK4
+3eVu2IvZtqBIIyR/E+CO7o89Tvgw5/TwkBEQ2pB0jDSiBrD/80TFBdsVTh7r9MmW
+IeRc52Uc3FReC7DAoH/EVPOBam1d1mWR7ES7/QGSm6oypLO1z0efefkgZkq/Uabb
+Fee3K8o6XE+K+3GmNMPBdG177qX4xhznJOzvWPfXbUlRYjS2EZwJS0qF4tsYfqjN
+Q5Ym5zskU/S0ghEk4CQfNvytFei5LRJM+dtESvVLfednlR1HUmrzWmRW+2l3kBFH
+EwIDAQABo1MwUTAdBgNVHQ4EFgQUnN69XZSvcGH3c636rP1hfSC62GwwHwYDVR0j
+BBgwFoAUnN69XZSvcGH3c636rP1hfSC62GwwDwYDVR0TAQH/BAUwAwEB/zANBgkq
+hkiG9w0BAQsFAAOCAQEAwostDmiaTLxdtzrMDb3IISoou/Rd8bpGladQRZpSltDC
+8pDZKF6O9fIXVqVraYFRO8yyo5y6b8SftzSfas3jmrMMdptIb+MfDCiiGBAIKNj8
+hEt4LBEv7FmliS9DFNFT3E15Etgqsds48e8IyivZAKF87lz84fCGieiwsrnl0ku1
+Np9qCYRluLPxlX67LrF+6xRapX9+tBbgzOQCEdF0LTP/puYmQViHnztc43YBZ2ZQ
+nlge/nEeIqF0Qli2MSttTOGz2gpLputNEVL8UkODpsHKxmIq75FcdwirgyyZuJcj
+3EfJpYJcT9H04AO9ILA26D2IvHIEDXEZ6tcoe0tHjQ==
+-----END CERTIFICATE-----
+subject=C=FR, ST=Paris, L=Paris, O=Esilv, OU=Esilv
+issuer=C=FR, ST=Paris, L=Paris, O=Esilv, OU=Esilv
+---
+No client certificate CA names sent
+Peer signing digest: SHA256
+Peer signature type: rsa_pss_rsae_sha256
+Peer Temp Key: X25519, 253 bits
+---
+SSL handshake has read 1556 bytes and written 428 bytes
+Verification error: self-signed certificate
+---
+New, TLSv1.2, Cipher is ECDHE-RSA-AES256-GCM-SHA384
+Protocol: TLSv1.2
+Server public key is 2048 bit
+Secure Renegotiation IS supported
+Compression: NONE
+Expansion: NONE
+No ALPN negotiated
+SSL-Session:
+    Protocol  : TLSv1.2
+    Cipher    : ECDHE-RSA-AES256-GCM-SHA384
+    Session-ID: 078F286E73371DFF7BB97E8496D5F9596199672B80BDE433623CB73713D20857
+    Session-ID-ctx: 
+    Master-Key: B330708C40B00BD0BD1BA6F7651F2473CE3284E3E31BECEF833C16B9B2C9B4213B1DDEEEBE3B7D2F6F8BEBAAC6A01D3C
+    PSK identity: None
+    PSK identity hint: None
+    SRP username: None
+    TLS session ticket lifetime hint: 300 (seconds)
+    TLS session ticket:
+    0000 - 55 03 e0 17 bb 74 5e 6a-87 29 49 d9 f3 f1 39 41   U....t^j.)I...9A
+    0010 - e4 20 ee 24 c9 ab f1 7f-6d 3c f8 9e ae a6 b2 6e   . .$....m<.....n
+    0020 - 1b 1f 72 e9 b3 e7 56 a8-56 cf 57 64 84 9b c8 12   ..r...V.V.Wd....
+    0030 - 50 9c 37 2c 55 f0 f8 a1-6d 7f 22 cb 70 e3 92 be   P.7,U...m.".p...
+    0040 - 90 a4 ad 06 0e 1c ee 51-cf dd e4 1e d5 e9 9d 28   .......Q.......(
+    0050 - 14 63 46 17 c5 b9 93 16-68 04 b9 a9 f1 9a 4f d3   .cF.....h.....O.
+    0060 - cd b5 48 63 29 56 9f 5d-85 10 0a b9 80 02 4a 08   ..Hc)V.]......J.
+    0070 - 6c ea 29 ac 75 56 4e 67-e2 98 8a 8a e8 e3 97 16   l.).uVNg........
+    0080 - ab 08 2c e1 f6 c7 74 d1-0e 2b e5 37 40 30 f3 52   ..,...t..+.7@0.R
+    0090 - 9c 1f 2d b6 99 b1 2e 58-b3 b9 cf 2e 71 fe 01 ac   ..-....X....q...
+    00a0 - 23 1e d0 29 63 4a 6b ca-6d 11 d2 5e d6 de 0e fd   #..)cJk.m..^....
+    00b0 - 73 b8 4c fe 54 38 f3 cf-d8 5e bc 82 6d d5 36 72   s.L.T8...^..m.6r
+
+    Start Time: 1775850980
+    Timeout   : 7200 (sec)
+    Verify return code: 18 (self-signed certificate)
+    Extended master secret: yes
+---
+DONE
+
+curl -vk https://10.10.20.10:8443/ 2>&1 | tee evidence/before/curl_vk.txt 
+
+tee: evidence/before/curl_vk.txt: No such file or directory
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0*   Trying 10.10.20.10:8443...
+* ALPN: curl offers h2,http/1.1
+} [5 bytes data]
+* TLSv1.3 (OUT), TLS handshake, Client hello (1):
+} [1672 bytes data]
+* SSL Trust: peer verification disabled
+{ [5 bytes data]
+* TLSv1.3 (IN), TLS handshake, Server hello (2):
+{ [108 bytes data]
+* TLSv1.2 (IN), TLS handshake, Certificate (11):
+{ [905 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server key exchange (12):
+{ [300 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server finished (14):
+{ [4 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Client key exchange (16):
+} [37 bytes data]
+* TLSv1.2 (OUT), TLS change cipher, Change cipher spec (1):
+} [1 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Finished (20):
+} [16 bytes data]
+* TLSv1.2 (IN), TLS handshake, Finished (20):
+{ [16 bytes data]
+* SSL connection using TLSv1.2 / ECDHE-RSA-AES256-GCM-SHA384 / x25519 / RSASSA-PSS
+* ALPN: server accepted http/1.1
+* Server certificate:
+*   subject: C=FR; ST=Paris; L=Paris; O=Esilv; OU=Esilv
+*   start date: Apr 10 19:14:16 2026 GMT
+*   expire date: Apr 10 19:14:16 2027 GMT
+*   issuer: C=FR; ST=Paris; L=Paris; O=Esilv; OU=Esilv
+*   Certificate level 0: Public key type RSA (2048/112 Bits/secBits), signed using sha256WithRSAEncryption
+*  SSL certificate verification failed, continuing anyway!
+* Established connection to 10.10.20.10 (10.10.20.10 port 8443) from 10.10.10.10 port 57300 
+* using HTTP/1.x
+} [5 bytes data]
+> GET / HTTP/1.1
+> Host: 10.10.20.10:8443
+> User-Agent: curl/8.18.0
+> Accept: */*
+> 
+* Request completely sent off
+{ [5 bytes data]
+< HTTP/1.1 200 OK
+< Server: nginx/1.24.0 (Ubuntu)
+< Date: Fri, 10 Apr 2026 19:57:04 GMT
+< Content-Type: text/html
+< Content-Length: 21
+< Last-Modified: Fri, 10 Apr 2026 19:48:18 GMT
+< Connection: keep-alive
+< ETag: "69d95402-15"
+< Accept-Ranges: bytes
+< 
+{ [21 bytes data]
+100     21 100     21   0      0   1875      0                              0
+* Connection #0 to host 10.10.20.10:8443 left intact
+<h1>Hello HTTPS</h1>
+                        
+
+
+sslscan --fast --warnings batch https://10.10.20.10:8443 | tee tls_scan.txt
+
+Version: 2.1.5
+OpenSSL 3.5.5 27 Jan 2026
+
+Connected to 10.10.20.10
+
+Testing SSL server 10.10.20.10 on port 8443 using SNI name 10.10.20.10
+
+  SSL/TLS Protocols:
+SSLv2     disabled
+SSLv3     disabled
+TLSv1.0   disabled
+TLSv1.1   disabled
+TLSv1.2   enabled
+TLSv1.3   disabled
+
+  TLS Fallback SCSV:
+Server supports TLS Fallback SCSV
+
+  TLS renegotiation:
+Session renegotiation not supported
+
+  TLS Compression:
+Compression disabled
+
+  Heartbleed:
+TLSv1.2 not vulnerable to heartbleed
+
+  Supported Server Cipher(s):
+Preferred TLSv1.2  256 bits  ECDHE-RSA-AES256-GCM-SHA384   Curve 25519 DHE 253
+Accepted  TLSv1.2  256 bits  ECDHE-RSA-CHACHA20-POLY1305   Curve 25519 DHE 253
+Accepted  TLSv1.2  256 bits  ECDHE-ARIA256-GCM-SHA384      Curve 25519 DHE 253
+Accepted  TLSv1.2  128 bits  ECDHE-RSA-AES128-GCM-SHA256   Curve 25519 DHE 253
+Accepted  TLSv1.2  128 bits  ECDHE-ARIA128-GCM-SHA256      Curve 25519 DHE 253
+Accepted  TLSv1.2  256 bits  ECDHE-RSA-AES256-SHA384       Curve 25519 DHE 253
+Accepted  TLSv1.2  256 bits  ECDHE-RSA-CAMELLIA256-SHA384  Curve 25519 DHE 253
+Accepted  TLSv1.2  128 bits  ECDHE-RSA-AES128-SHA256       Curve 25519 DHE 253
+Accepted  TLSv1.2  128 bits  ECDHE-RSA-CAMELLIA128-SHA256  Curve 25519 DHE 253
+Accepted  TLSv1.2  256 bits  ECDHE-RSA-AES256-SHA          Curve 25519 DHE 253
+Accepted  TLSv1.2  128 bits  ECDHE-RSA-AES128-SHA          Curve 25519 DHE 253
+Accepted  TLSv1.2  256 bits  AES256-GCM-SHA384            
+Accepted  TLSv1.2  64 bits   AES256-CCM8                  
+Accepted  TLSv1.2  256 bits  AES256-CCM                   
+Accepted  TLSv1.2  256 bits  ARIA256-GCM-SHA384           
+Accepted  TLSv1.2  128 bits  AES128-GCM-SHA256            
+Accepted  TLSv1.2  64 bits   AES128-CCM8                  
+Accepted  TLSv1.2  128 bits  AES128-CCM                   
+Accepted  TLSv1.2  128 bits  ARIA128-GCM-SHA256           
+Accepted  TLSv1.2  256 bits  AES256-SHA256                
+Accepted  TLSv1.2  256 bits  CAMELLIA256-SHA256           
+Accepted  TLSv1.2  128 bits  AES128-SHA256                
+Accepted  TLSv1.2  128 bits  CAMELLIA128-SHA256           
+Accepted  TLSv1.2  256 bits  AES256-SHA                   
+Accepted  TLSv1.2  256 bits  CAMELLIA256-SHA              
+Accepted  TLSv1.2  128 bits  AES128-SHA                   
+Accepted  TLSv1.2  128 bits  CAMELLIA128-SHA              
+
+  Server Key Exchange Group(s):
+TLSv1.2  128 bits  secp256r1 (NIST P-256)
+TLSv1.2  192 bits  secp384r1 (NIST P-384)
+TLSv1.2  260 bits  secp521r1 (NIST P-521)
+TLSv1.2  128 bits  x25519
+TLSv1.2  224 bits  x448
+
+  SSL Certificate:
+Signature Algorithm: sha256WithRSAEncryption
+RSA Key Strength:    2048
+
+Subject:  /C=FR/ST=Paris/L=Paris/O=Esilv/OU=Esilv
+Issuer:   /C=FR/ST=Paris/L=Paris/O=Esilv/OU=Esilv
+Not valid before: Apr 10 19:14:16 2026 GMT
+Not valid after:  Apr 10 19:14:16 2027 GMT
+

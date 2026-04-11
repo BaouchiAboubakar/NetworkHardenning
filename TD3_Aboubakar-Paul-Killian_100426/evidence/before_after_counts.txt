@@ -23,3 +23,8 @@ usersensor@sensor:~/evidence$ cat after_counts.txt
 04/10/2026-15:30:53.240058 [**] [1:2024364:5] ET SCAN Possible Nmap User-Agent Observed [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 10.10.10.20:60268 -> 10.10.20.10:80
 04/10/2026-15:30:53.240155 [**] [1:2024364:5] ET SCAN Possible Nmap User-Agent Observed [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 10.10.10.20:60269 -> 10.10.20.10:80
 04/10/2026-15:30:53.240247 [**] [1:2024364:5] ET SCAN Possible Nmap User-Agent Observed [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 10.10.10.20:60270 -> 10.10.20.10:80
+
+
+
+
+Il y a moins de scan NMAP retenu dans le second
