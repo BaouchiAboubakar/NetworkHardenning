@@ -1,0 +1,6 @@
+ID,Source zone,Source asset,Destination zone,Destination asset,Proto,Port,Purpose,Owner,Status
+F01,LAN,client,DMZ,srv-web,TCP,22,SSH admin access (remote administration of srv-web),instructor,ALLOW
+F04,LAN,client,DMZ,srv-web,TCP,80,HTTP access for application testing,app owner,ALLOW
+F05,LAN,client,DMZ,srv-web,TCP,443,Planned HTTPS access (not yet configured in TD1),app owner,REVIEW
+F06,LAN,client,DMZ,srv-web,ICMP,-,Diagnostics / connectivity checks (ping),lab,ALLOW
+F10,any,any,any,any,any,any,Default deny for all other flows,security,DENY
