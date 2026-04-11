@@ -1,12 +1,3 @@
-alert http $HOME_NET any -> $HOME_NET 80 (
-    msg:"TD3 CUSTOM - HTTP request to /admin detected";
-    flow:to_server,established;
-    http.uri; content:"/admin";
-    sid:9000001; rev:1;
-    classtype:policy-violation;
-)
-
-
 trigger command:
 curl -s http://10.10.20.10/admin
 
